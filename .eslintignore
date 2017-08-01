@@ -1,0 +1,3 @@
+client/app/**/angular-*.js
+client/app/**/*.spec.js
+client/app/lib
