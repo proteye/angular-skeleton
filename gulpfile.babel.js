@@ -6,6 +6,7 @@ import path     from 'path';
 import sync     from 'run-sequence';
 import rename   from 'gulp-rename';
 import template from 'gulp-template';
+import htmlmin  from 'gulp-htmlmin';
 import fs       from 'fs';
 import yargs    from 'yargs';
 import lodash   from 'lodash';
@@ -75,6 +76,7 @@ gulp.task('webpack', ['clean'], (cb) => {
       .pipe(gulp.dest(paths.dest));
 
     gulp.src([paths.html], {base: root})
+      .pipe(htmlmin({collapseWhitespace: true})) // minify html
       .pipe(gulp.dest(paths.dest));
 
     gulp.src([paths.json])
